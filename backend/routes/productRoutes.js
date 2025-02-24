@@ -36,6 +36,25 @@ router.delete('/products/:id', async (req, res) => {
   }
 });
 
+// Mettre à jour un produit par ID
+router.put('/products/:id', async (req, res) => {
+  const { id } = req.params;
+  const updatedData = req.body;
+
+  try {
+    const product = await Product.findById(id);
+    if (!product) {
+      return res.status(404).json({ message: 'Produit non trouvé' });
+    }
+
+    const updatedProduct = await Product.findByIdAndUpdate(id, updatedData, { new: true, runValidators: true });
+    res.status(200).json(updatedProduct);
+  } catch (err) {
+    res.status(500).json({ message: "Erreur lors de la mise à jour du produit", error: err.message });
+  }
+});
+
 module.exports = router;
+
 
 
