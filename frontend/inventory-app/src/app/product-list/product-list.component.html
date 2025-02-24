@@ -1,0 +1,13 @@
+<h2>Product List</h2>
+<div *ngIf="products.length > 0; else noProducts">
+  <ul>
+    <li *ngFor="let product of products">
+      {{ product.name }} - {{ product.price }} €
+      <button (click)="deleteProduct(product._id)">Delete</button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noProducts>
+  <p>No products available.</p>
+</ng-template>

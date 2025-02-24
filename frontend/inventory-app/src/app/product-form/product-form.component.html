@@ -1,0 +1,19 @@
+<h2>Add a New Product</h2>
+<form [formGroup]="productForm" (ngSubmit)="submitForm()">
+  <label for="name">Product Name:</label>
+  <input id="name" formControlName="name" required />
+
+  <label for="description">Description:</label>
+  <textarea id="description" formControlName="description" required></textarea>
+
+  <label for="price">Price (€):</label>
+  <input id="price" type="number" formControlName="price" required />
+
+  <label for="stock">Stock Quantity:</label>
+  <input id="stock" type="number" formControlName="stock" required />
+
+  <label for="category">Category:</label>
+  <input id="category" formControlName="category" required />
+
+  <button type="submit" [disabled]="productForm.invalid">Add Product</button>
+</form>
