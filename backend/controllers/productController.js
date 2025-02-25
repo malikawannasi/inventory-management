@@ -52,9 +52,23 @@ const updateProduct = async (req, res) => {
   }
 };
 
+// Lire un produit par ID
+const getProductById = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).json({ message: 'Produit non trouvé' });
+    }
+    res.json(product);
+  } catch (err) {
+    res.status(500).json({ message: "Erreur lors de la récupération du produit", error: err.message });
+  }
+};
+
 module.exports = {
   createProduct,
   getProducts,
+  getProductById,
   deleteProduct,
   updateProduct
 };

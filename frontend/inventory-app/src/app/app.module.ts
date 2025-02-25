@@ -6,6 +6,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common'; // Import de CommonModule
+import { RouterModule } from '@angular/router';  // Import du RouterModule
+import { routes } from './app.routes';  // Import des routes
 
 @NgModule({
   declarations: [
@@ -17,9 +19,12 @@ import { CommonModule } from '@angular/common'; // Import de CommonModule
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(routes)  // Ajoutez RouterModule avec les routes
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

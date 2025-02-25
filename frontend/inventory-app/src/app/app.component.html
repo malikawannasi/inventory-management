@@ -1,4 +1,6 @@
 <div class="container">
-  <app-product-form></app-product-form>
-  <app-product-list></app-product-list>
+<app-product-list [products]="products" (productEdited)="onProductEdited($event)"></app-product-list>
+<app-product-form [product]="selectedProduct" (productUpdated)="onProductUpdated($event)"></app-product-form>
+
 </div>
+<router-outlet/>

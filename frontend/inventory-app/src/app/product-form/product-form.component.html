@@ -1,4 +1,4 @@
-<h2>Add a New Product</h2>
+<h2>{{ productId ? 'Edit Product' : 'Add a New Product' }}</h2>
 <form [formGroup]="productForm" (ngSubmit)="submitForm()">
   <label for="name">Product Name:</label>
   <input id="name" formControlName="name" required />
@@ -15,5 +15,5 @@
   <label for="category">Category:</label>
   <input id="category" formControlName="category" required />
 
-  <button type="submit" [disabled]="productForm.invalid">Add Product</button>
+  <button type="submit" [disabled]="productForm.invalid">{{ productId ? 'Update Product' : 'Add Product' }}</button>
 </form>
